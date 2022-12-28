@@ -4,6 +4,10 @@ import { Vector3 } from "three";
 import { useEffect, useRef } from "react";
 import { useKeyboard } from "../hooks/useKeyboard";
 
+
+import { usePlane } from "@react-three/cannon";
+import { groundTexture } from "../images/textures";
+
 const CHARACTER_SPEED = 2;
 const CHARACTER_JUMP_FORCE = 10;
 
@@ -25,7 +29,8 @@ export const Player = () => {
     const [ref, api] = useSphere(() => ({       
         mass: 1,
         type: "Dynamic",
-        position: [0, 0.5, 0]
+        position: [0, 0.5, 0],
+        // rotation: [- Math.PI / 2,  Math.PI / 2, Math.PI / 2],
     }));
 
 
@@ -51,8 +56,8 @@ export const Player = () => {
     useFrame(() => {
         camera.position.copy(
             new Vector3(
-                pos.current[0], //X
-                pos.current[1], //Y
+                pos.current[0] + 20, //X
+                pos.current[1] +3, //Y
                 pos.current[2]  //Z
 
             )
@@ -90,6 +95,13 @@ export const Player = () => {
     })
 
   return (
-    <mesh ref={ref}></mesh>
+    <mesh ref={ref}>
+        {/* <planeBufferGeometry attach="geometry" args={[100, 100]} /> */}
+        <sphereBufferGeometry attach="geometry" args={[5, 5]}></sphereBufferGeometry>
+            <meshStandardMaterial 
+                attach="material"  
+                color='red'
+            />
+    </mesh>
   );
 }
