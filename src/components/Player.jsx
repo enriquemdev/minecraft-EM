@@ -85,7 +85,7 @@ export const Player = () => {
         .multiplyScalar(CHARACTER_SPEED) //multiplicar el vector por la velocidad del player
         .applyEuler(camera.rotation); //aplicar la rotacion de la camara al vector para que el player se mueva correspondientemente a la direccion en la que esta mirando la camara
         
-        console.log(direction);
+        //console.log(direction);
         api.velocity.set(
             direction.x,
             vel.current[1],//Aqui es la velocidad por la velocidad de cuando se salta y luego el efecto de la gravedad al caer

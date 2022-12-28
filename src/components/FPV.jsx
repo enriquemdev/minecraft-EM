@@ -9,7 +9,8 @@ export function FPV  () {
 
     return (
         <PointerLockControls
-            args={[camera, gl.domElement]}
+             args={[camera, gl.domElement]}
+            //args={[camera, domElementLimit.domElement]}
         >
 
         </PointerLockControls>

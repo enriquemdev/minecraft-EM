@@ -21,3 +21,10 @@ body {
   left: 0;
   right: 0;
 }
+
+
+#canvasContainer {
+  position: fixed;
+  height: 90vh;
+  top: 10vh;
+}
