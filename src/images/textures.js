@@ -9,6 +9,7 @@ import {
 
 import { NearestFilter, RepeatWrapping, TextureLoader } from "three";
 
+// Para cargar las texturas
 const grassTexture = new TextureLoader().load(grassImg)
 const dirtTexture = new TextureLoader().load(dirtImg)
 const logTexture = new TextureLoader().load(logImg)

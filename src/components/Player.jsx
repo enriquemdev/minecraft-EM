@@ -4,11 +4,12 @@ import { Vector3 } from "three";
 import { useEffect, useRef } from "react";
 import { useKeyboard } from "../hooks/useKeyboard";
 
-const CHARACTER_SPEED = 2;
-const CHARACTER_JUMP_FORCE = 10;
+const CHARACTER_SPEED = 4;
+const CHARACTER_JUMP_FORCE = 4;
 
 export const Player = () => {
 
+    //El siguiente objeto es un hook que se encarga de monitorear las teclas que se presionan en el teclado
     const { 
         moveBackward, 
         moveForward, 
@@ -18,6 +19,7 @@ export const Player = () => {
 
     } = useKeyboard();
 
+    //Se crea una referencia a la camara para poder acceder a ella
     const { camera } = useThree();
 
     //El player es una esfera
@@ -64,12 +66,12 @@ export const Player = () => {
         const frontVector = new Vector3(
             0,
             0, 
-            (moveBackward ? 1 : 0) - (moveForward ? 1 : 0)
+            (moveBackward ? 1 : 0) - (moveForward ? 1 : 0)//Si se presiona la tecla de adelante se le suma 1, si se presiona la tecla de atras se le resta 1, si no se presiona ninguna tecla se le suma 0
         );
 
         //movimiento lateral del player
         const sideVector = new Vector3(
-            (moveLeft ? 1 : 0) - (moveRight ? 1 : 0),
+            (moveLeft ? 1 : 0) - (moveRight ? 1 : 0),//Si se presiona la tecla de izquierda se le suma 1, si se presiona la tecla de derecha se le resta 1, si no se presiona ninguna tecla se le suma 0
             0,
             0
         );
@@ -80,12 +82,22 @@ export const Player = () => {
         .multiplyScalar(CHARACTER_SPEED) //multiplicar el vector por la velocidad del player
         .applyEuler(camera.rotation); //aplicar la rotacion de la camara al vector para que el player se mueva correspondientemente a la direccion en la que esta mirando la camara
         
-        console.log(direction);
+        //console.log(direction);
+        //la api de velocity es la que se suscribe a la posicion del player
         api.velocity.set(
             direction.x,
             vel.current[1],//Aqui es la velocidad por la velocidad de cuando se salta y luego el efecto de la gravedad al caer
             direction.z
         );
+
+        //salto del player
+        if (jump && Math.abs(vel.current[1]) < 0.05) { //Si se presiona la tecla de salto y la velocidad en Y es menor a 0.05 (osea para que no se salte 2 veces)
+            api.velocity.set(
+                vel.current[0],
+                CHARACTER_JUMP_FORCE,
+                vel.current[2]
+            );
+        }
 
     })
 
