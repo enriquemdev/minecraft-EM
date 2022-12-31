@@ -6,10 +6,12 @@ const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
+const { IsObject } = require("@react-three/drei");
+const { isObject } = require("util");
 
 app.use(cors()); //Permite que el servidor se comunique con el cliente
 
-const server = http.createServer(app); //Crea el servidor
+const server =  http.createServer(app); //Crea el servidor
 
 const io = new Server(server, { //Crea el socket.io
   cors: {
@@ -18,20 +20,49 @@ const io = new Server(server, { //Crea el socket.io
   },
 });
 
+let clients = {}
+
 //Aqui se guarda cuando un cliente se conecta al servidor
-io.on("connection", (socket) => {
-  console.log(`User Connected: ${socket.id}`);//Muestra el id del usuario que se conecto
+io.on("connection", (client) => {
+  console.log(`User Connected: ${client.id}`);//Muestra el id del usuario que se conecto
 
+    //Add a new client indexed by his id
+    clients[client.id] = {
+        position: ["0", 0, 0],
+        rotation: ["0", 0, 0],
+    }
 
-  socket.on("send_message", (data) => { //Cuando un cliente envia un mensaje (Evento send_message proveniente del cliente (App.js)))
+    
+    io.sockets.emit('moveyy', clients)
+    console.log(clients)
+    // socket.on('move', ( id ) => {
+    //     // clients[id].position = position
+    //     // clients[id].rotation = rotation
+    //     io.sockets.emit('move', clients)
+    //     console.log('move on server' + clients[socket.id].position);
+    //     //io.sockets.emit('move', clients)
+    // })
+
+    // client.on("getClient", (data) => { //Cuando un cliente envia un mensaje (Evento send_message proveniente del cliente (App.js)))
+    //     console.log(data+' esta funcionando')
+    //     io.sockets.emit('moveyy', clients); //Envia el mensaje a todos los usuarios conectados
+    //     //socket.broadcast.emit("receive_message", data); //Envia el mensaje a todos los usuarios conectados excepto al que lo envio
+    //   });
+
+  client.on("send_message", (data) => { //Cuando un cliente envia un mensaje (Evento send_message proveniente del cliente (App.js)))
     io.sockets.emit("receive_message", data); //Envia el mensaje a todos los usuarios conectados
-    socket.broadcast.emit("receive_message", data); //Envia el mensaje a todos los usuarios conectados excepto al que lo envio
+    //socket.broadcast.emit("receive_message", data); //Envia el mensaje a todos los usuarios conectados excepto al que lo envio
   });
 
-  socket.on('disconnect', () => {//Cuando un cliente se desconecta
+    client.on('disconnect', () => {//Cuando un cliente se desconecta
         console.log(
-            `User ${socket.id} disconnected, there are currently ${io.engine.clientsCount} users connected`//Muestra el id del usuario que se desconecto y la cantidad de usuarios conectados
+            `User ${client.id} disconnected, there are currently ${io.engine.clientsCount} users connected`//Muestra el id del usuario que se desconecto y la cantidad de usuarios conectados
         )
+
+        //Delete this client from the object
+        delete clients[client.id]
+
+        io.sockets.emit('move', clients)
     });
 
 });
