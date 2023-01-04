@@ -35,7 +35,7 @@ export const Cube = ( { id, position, texture } ) => {
                 if (event.altKey) 
                 {
                     //const { x, y, z } = ref.current.position; //La posicion la saca de la ref obtenida arriba en el useBox y se le pasa al mesh
-                    removeCube(id);
+                    removeCube(x, y, z);
                 }
             }}
         >

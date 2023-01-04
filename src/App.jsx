@@ -6,6 +6,7 @@ import { FPV } from "./components/FPV"
 import { Player } from "./components/Player"
 import { Cubes } from "./components/Cubes"
 import { TextureSelector } from "./components/TextureSelector"
+import { Menu } from "./components/Menu"
 
 function App () {
 
@@ -24,10 +25,9 @@ function App () {
         </Canvas>
         <div id='pointer'>+</div>
         <TextureSelector></TextureSelector>
+        <Menu></Menu>
       </>
   )
 }
-
-export default App
-
 //Quede en el minuto 1:20:06 FCC
+export default App;
