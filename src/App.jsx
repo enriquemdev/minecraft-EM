@@ -15,7 +15,7 @@ function App () {
           <Sky sunPosition={[100, 100, 20]} ></Sky>
           <ambientLight intensity={0.5}></ambientLight>
           <FPV></FPV>
-          <TextureSelector></TextureSelector>
+          
           <Physics>
             <Cubes></Cubes>
             <Player></Player>
@@ -23,10 +23,11 @@ function App () {
           </Physics>
         </Canvas>
         <div id='pointer'>+</div>
+        <TextureSelector></TextureSelector>
       </>
   )
 }
 
 export default App
 
-//Quede en el minuto 1:11:45
+//Quede en el minuto 1:20:06 FCC
