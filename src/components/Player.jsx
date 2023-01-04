@@ -81,6 +81,8 @@ export const Player = () => {
         .normalize() //normalizar el vector (matematicas)
         .multiplyScalar(CHARACTER_SPEED) //multiplicar el vector por la velocidad del player
         .applyEuler(camera.rotation); //aplicar la rotacion de la camara al vector para que el player se mueva correspondientemente a la direccion en la que esta mirando la camara
+
+        //console.log(camera.rotation);
         
         //console.log(direction);
         //la api de velocity es la que se suscribe a la posicion del player

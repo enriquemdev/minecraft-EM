@@ -9,7 +9,7 @@ export const Cubes = () => {
     return (
       <Cube
         key={id}
-        //id={id}
+        id={id}
         position={pos}
         texture={texture}
       />

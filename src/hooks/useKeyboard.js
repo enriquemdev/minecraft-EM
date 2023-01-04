@@ -31,7 +31,7 @@ export const useKeyboard = () => {
         wood: false,
     })
 
-    console.log(actions);
+    //console.log(actions);
 
     useEffect(() => {
 
