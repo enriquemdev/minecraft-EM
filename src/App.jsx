@@ -7,6 +7,7 @@ import { Player } from "./components/Player"
 import { Cubes } from "./components/Cubes"
 import { TextureSelector } from "./components/TextureSelector"
 import { Menu } from "./components/Menu"
+import Text from "./components/Text"
 
 function App () {
 
@@ -16,7 +17,7 @@ function App () {
           <Sky sunPosition={[100, 100, 20]} ></Sky>
           <ambientLight intensity={0.5}></ambientLight>
           <FPV></FPV>
-          
+          <Text></Text>
           <Physics>
             <Cubes></Cubes>
             <Player></Player>
