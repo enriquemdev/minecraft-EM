@@ -28,13 +28,15 @@ export const useStore = create(set => ({
           }]
         }))
       },
-    removeCube: (id) => {
-        set(state => ({
-            cubes: state.cubes.filter(cube => {//Filtrar los cubos que no coincidan con las coordenadas del cubo que se quiere eliminar
-                return cube.id !== id
-            })
+      removeCube: (x, y, z) => {
+        set((prev) => ({
+          cubes: prev.cubes.filter(cube => {
+            const [X, Y, Z] = cube.pos
+            return X !== x || Y !== y || Z !== z
+          })
+    
         }))
-    },
+      },
     setTexture: (texture) => {
       set(() => ({ texture }))
     },

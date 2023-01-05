@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { useKeyboard } from "../hooks/useKeyboard";
 
 const CHARACTER_SPEED = 4;
-const CHARACTER_JUMP_FORCE = 4;
+const CHARACTER_JUMP_FORCE = 3;
 
 export const Player = () => {
 
@@ -27,7 +27,8 @@ export const Player = () => {
     const [ref, api] = useSphere(() => ({       
         mass: 1,
         type: "Dynamic",
-        position: [0, 0.5, 0]
+        position: [0, 0.5, 0],
+        //args: [2],
     }));
 
 
@@ -54,8 +55,8 @@ export const Player = () => {
         camera.position.copy(
             new Vector3(
                 pos.current[0], //X
-                pos.current[1], //Y
-                pos.current[2]  //Z
+                pos.current[1] + 0.5, //Y
+                pos.current[2]//Z
 
             )
         );
@@ -104,6 +105,13 @@ export const Player = () => {
     })
 
   return (
-    <mesh ref={ref}></mesh>
+    <mesh ref={ref}>
+
+<sphereBufferGeometry attach="geometry" args={[1]}></sphereBufferGeometry>
+            <meshStandardMaterial 
+                attach="material"  
+                color='red'
+            />
+    </mesh>
   );
 }
