@@ -67,7 +67,7 @@ export const Cube = ( { id, position, texture } ) => {
 				}
             }}
         >
-            <boxBufferGeometry attach="geometry" />{/*Lo atamos a la geometria de la malla (mesh) */}
+            <boxGeometry attach="geometry" />{/*Lo atamos a la geometria de la malla (mesh) */}
             <meshStandardMaterial 
                 color={isHovered ? 'lightgray' : 'white'}
                 transparent
@@ -75,8 +75,7 @@ export const Cube = ( { id, position, texture } ) => {
                 map={activeTexture} 
                 attach='material'
 
-            ></meshStandardMaterial> {/* Se le pone map en vez de color si se quiere poner una imagen */}
-            
+            ></meshStandardMaterial>{/* Se le pone map en vez de color si se quiere poner una imagen */}
         </mesh>
     )
 }

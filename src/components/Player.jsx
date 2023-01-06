@@ -107,7 +107,7 @@ export const Player = () => {
   return (
     <mesh ref={ref}>
 
-<sphereBufferGeometry attach="geometry" args={[1]}></sphereBufferGeometry>
+<sphereGeometry attach="geometry" args={[1]}></sphereGeometry>
             <meshStandardMaterial 
                 attach="material"  
                 color='red'
