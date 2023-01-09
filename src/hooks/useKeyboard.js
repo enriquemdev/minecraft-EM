@@ -13,6 +13,10 @@ const ACTIONS_KEYBOARD_MAP = {
     'Digit3': 'glass',
     'Digit4': 'wood',
     'Digit5': 'log',
+
+    'KeyQ': 'toggleFlyingMode',
+    'KeyR': 'ascend',
+    'KeyF': 'descend',
 }
 
 export const useKeyboard = () => {
@@ -29,6 +33,10 @@ export const useKeyboard = () => {
         glass: false,
         log: false,
         wood: false,
+        toggleFlyingMode: false,
+        ascend: false,
+        descend: false,
+
     })
 
     //console.log(actions);

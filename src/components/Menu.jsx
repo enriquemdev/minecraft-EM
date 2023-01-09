@@ -1,7 +1,7 @@
 import { useStore } from "../hooks/useStore"
 
 export const Menu = () => {
-    const [saveWorld, resetWorld] = useStore((state) => [state.saveWorld, state.resetWorld]);
+    const [saveWorld, resetWorld, setFlyingMode] = useStore((state) => [state.saveWorld, state.resetWorld, state.setFlyingMode]);
 
     return (
         <div className="menu absolute">
@@ -12,6 +12,10 @@ export const Menu = () => {
             <button
                 onClick={() => resetWorld()}
             >Reset</button>
+
+            <button
+                onClick={() => setFlyingMode()}
+            >Fly</button>
         </div>
     )
 }

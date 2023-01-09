@@ -71,4 +71,13 @@ export const useStore = create(set => ({
       cubes: []
     }))
   },
+
+  //my own code
+  flyingMode: false,
+  setFlyingMode: () => {
+    set((state) => ({ 
+      flyingMode: !(state.flyingMode)
+      
+    }))
+  }
 }))

@@ -11,6 +11,7 @@ export const Cube = ( { id, position, texture } ) => {
 
     const [ref] = useBox(() => ({
         type: "Static",
+        // mass: 1,
         position
     }));
 
