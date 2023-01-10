@@ -26,6 +26,20 @@ function App () {
   }, [flyingMode, setFlyingMode]);
 
   
+  // // Add event listener on keydown
+  // document.addEventListener('keydown', (event) => {
+  //   //var name = event.key;
+  //   var code = event.code;
+  //   if (code === 'KeyQ') {
+  //     console.log('Q was pressed');
+  //     setFlyingMode();
+  //   }
+    
+  // }, false);
+
+
+
+  
   return (
       <>
         <Canvas>

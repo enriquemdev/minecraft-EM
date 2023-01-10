@@ -22,7 +22,7 @@ export const Player = () => {
         moveRight,
         jump,
 
-        toggleFlyingMode,
+        //toggleFlyingMode,
         ascend,
         descend,
 
@@ -179,6 +179,8 @@ export const Player = () => {
     // El sphereGeometry tambien puede ser boxGeometry, planeGeometry, cilinderGeometry
     // Sirve para ponerle la forma visible al objeto, sin fisicas (para usar fisicas usar el useSphere, useBox, usePlane, useCilinder de useCannon)
     // La propiedad args puede determinar el tamaño del objeto
+
+    
 
   return (
     <mesh ref={ref} >

@@ -79,5 +79,12 @@ export const useStore = create(set => ({
       flyingMode: !(state.flyingMode)
       
     }))
+  },
+  helpVisible: false,
+  setHelpVisible: () => {
+    set((state) => ({ 
+      helpVisible: !(state.helpVisible)
+      
+    }))
   }
 }))
