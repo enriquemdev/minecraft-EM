@@ -54,6 +54,7 @@ body {
 
 .texture-selector {
   transform: scale(5);
+  left: 47%;
 }
 
 .texture-selector img.active {

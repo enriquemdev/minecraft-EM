@@ -11,8 +11,8 @@ export default function Text() {
     const font = new FontLoader().parse(myFont);
     
     return(
-    <mesh position={[-36, 2, -80]}>
-        <textGeometry args={['By: Enrique Muñoz', {font, size:5, height: 1}]}/>
+    <mesh position={[-25, 2, -80]}>
+        <textGeometry args={['Enrique Muñoz', {font, size:5, height: 1}]}/>
         <meshLambertMaterial attach='material' color={'#08024d'}/>
     </mesh>
     )

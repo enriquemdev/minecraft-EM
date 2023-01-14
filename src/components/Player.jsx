@@ -7,12 +7,12 @@ import { useKeyboard } from "../hooks/useKeyboard";
 import { useStore } from "../hooks/useStore";
 
 const CHARACTER_SPEED = 4;
-const CHARACTER_JUMP_FORCE = 3.5;
+const CHARACTER_JUMP_FORCE = 4;
 const CHARACTER_FLYING_SPEED = 0.065;
 
 export const Player = () => {
 
-    const [flyingMode, setFlyingMode] = useStore(state => [state.flyingMode, state.setFlyingMode])
+    const [flyingMode] = useStore(state => [state.flyingMode])
 
     //El siguiente objeto es un hook que se encarga de monitorear las teclas que se presionan en el teclado
     const { 
