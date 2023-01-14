@@ -1,9 +1,10 @@
 import { useStore } from "../hooks/useStore"
 import { useLayoutEffect } from "react"
 import { Help } from "./Help";
+import { CubeSelection } from "./CubeSelection";
 
 export const Menu = () => {
-    const [saveWorld, resetWorld, setFlyingMode, setHelpVisible] = useStore((state) => [state.saveWorld, state.resetWorld, state.setFlyingMode, state.setHelpVisible]);
+    const [saveWorld, resetWorld, setFlyingMode, setHelpVisible, setCubeSelectionVisible] = useStore((state) => [state.saveWorld, state.resetWorld, state.setFlyingMode, state.setHelpVisible, state.setCubeSelectionVisible]);
     //const [helpVisible, setHelpVisible] = useState(false);
 
     //MENU DE TECLAS
@@ -20,6 +21,10 @@ export const Menu = () => {
             else if (code === 'KeyH')
             {
                 setHelpVisible();
+            }
+            else if (code === 'KeyZ')
+            {
+                setCubeSelectionVisible();
             }
         }
 
@@ -47,6 +52,7 @@ export const Menu = () => {
                 >Fly</button>
             </div>
             <Help></Help>
+            <CubeSelection></CubeSelection>
         </>
     )
 }

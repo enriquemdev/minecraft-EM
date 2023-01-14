@@ -80,10 +80,19 @@ export const useStore = create(set => ({
       
     }))
   },
+
   helpVisible: false,
   setHelpVisible: () => {
     set((state) => ({ 
       helpVisible: !(state.helpVisible)
+      
+    }))
+  },
+  
+  cubeSelectionVisible: false,
+  setCubeSelectionVisible: () => {
+    set((state) => ({ 
+      cubeSelectionVisible: !(state.cubeSelectionVisible)
       
     }))
   }

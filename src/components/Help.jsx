@@ -2,7 +2,7 @@ import {useState, useLayoutEffect} from 'react'
 import { useStore } from '../hooks/useStore.js';
 
 export const Help = () => {
-    const [helpVisible] = useStore((state) => [state.helpVisible, state.setHelpVisible]);
+    const [helpVisible] = useStore((state) => [state.helpVisible]);
 
     const [visible, setVisible] = useState(helpVisible);
 
