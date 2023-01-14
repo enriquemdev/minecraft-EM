@@ -2,14 +2,15 @@
 import { useStore } from '../hooks/useStore.js';
 import { useKeyboard } from '../hooks/useKeyboard.js';
 import { useEffect, useState } from 'react';
-import { dirtImg, grassImg, glassImg, woodImg, logImg } from '../images/images.js';
+import { dirtImg, grassImg, glassImg, woodImg, logImg, goldImg } from '../images/images.js';
 
 const images = {
     dirt: dirtImg,
     grass: grassImg,
     glass: glassImg,
     wood: woodImg,
-    log: logImg
+    log: logImg,
+    gold: goldImg
 }
 
 export const TextureSelector = () => {
@@ -21,7 +22,8 @@ export const TextureSelector = () => {
         grass,
         glass,
         wood,
-        log
+        log,
+        gold
     } = useKeyboard();
 
     useEffect(() => {
@@ -30,7 +32,8 @@ export const TextureSelector = () => {
         grass,
         glass,
         wood,
-        log
+        log,
+        gold
         }
     
         const selectedTexture = Object  
@@ -41,7 +44,7 @@ export const TextureSelector = () => {
             const [textureName] = selectedTexture
             setTexture(textureName)
         }
-    }, [setTexture, dirt, grass, glass, wood, log]);
+    }, [setTexture, dirt, grass, glass, wood, log, gold]);
 
 
     useEffect(() => {

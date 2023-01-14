@@ -54,6 +54,7 @@ body {
 
 .texture-selector {
   transform: scale(5);
+  left: 47%;
 }
 
 .texture-selector img.active {
@@ -73,5 +74,76 @@ body {
   transform: translate(-50%, -50%);
   text-shadow: 0 0 6px black;
   opacity: 0.7;
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+li {
+  margin-bottom: 0.1rem;
+}
+
+
+
+
+/* HELP */
+.help {
+  font-size: medium;
+  background-color: darkslategray;
+  color: #f5f5f5;
+  padding: 10px 18px;
+  border: 6px solid darkgray;
+  opacity: 0.95;
+}
+
+.helpMiniTitle {
+  font-weight: bolder;
+  color: black;
+  background-color: #61ff9b;
+}
+
+.helpTitle {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.helpMainTitle {
+  font-size: 1.65rem;
+}
+
+.keysText {
+  font-weight: bolder;
+  color: black;
+  background-color: orangered;
+}
+
+.mouseText {
+  font-weight: bolder;
+  color: black;
+  background-color: #f0d400;
+}
+
+.flyText {
+  font-weight: bolder;
+  color: black;
+  background-color: lightskyblue;
+}
+
+.helpDownText {
+  color: #d10000;
+  font-weight: bolder;
+  font-size: small;
+
+  bottom: 5px;
+  right: 10px;
 }
 

@@ -25,7 +25,7 @@ export function Ground() {
 
     return (
         <mesh ref={ref} onClick={handleClickGround}>
-            <planeBufferGeometry attach="geometry" args={[100, 100]} />
+            <planeGeometry attach="geometry" args={[100, 100]} />
             <meshStandardMaterial 
                 attach="material"  
                 map={groundTexture}
