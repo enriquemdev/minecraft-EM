@@ -14,7 +14,7 @@ const images = {
 }
 
 export const CubeSelection = () => {
-    const [cubeSelectionVisible, setCubeSelectionVisible] = useStore((state) => [state.cubeSelectionVisible, state.setCubeSelectionVisible]);
+    const [cubeSelectionVisible, MenuCubeSelected] = useStore((state) => [state.cubeSelectionVisible, state.MenuCubeSelected]);
     const [visible, setVisible] = useState(false)
 
     useLayoutEffect(() => {
@@ -30,36 +30,39 @@ export const CubeSelection = () => {
         gold
     } = useKeyboard();
 
-    useEffect(() => {
-        const options = {
-        dirt,
-        grass,
-        glass,
-        wood,
-        log,
-        gold
-        }
+    // useEffect(() => {
+    //     const options = {
+    //     dirt,
+    //     grass,
+    //     glass,
+    //     wood,
+    //     log,
+    //     gold
+    //     }
     
-        const selectedTexture = Object  
-        .entries(options)
-        .find(([texture, isEnabled]) => isEnabled)
+    //     const selectedTexture = Object  
+    //     .entries(options)
+    //     .find(([texture, isEnabled]) => isEnabled)
     
-        if (selectedTexture) {
-            const [textureName] = selectedTexture
-            //setTexture(textureName)
-        }
-    }, [dirt, grass, glass, wood, log, gold]);
+    //     if (selectedTexture) {
+    //         const [textureName] = selectedTexture
+    //         //setTexture(textureName)
+    //     }
+    // }, [dirt, grass, glass, wood, log, gold]);
 
+        let counter = 0;
         return (
             <div className={'cube-selection '+(visible ? 'visibleFlex' : 'hidden')}>
                 {
                     Object.entries(images).map(([textureName, textureImg]) => {
+                        counter++;
+
                         return (
                             <img
                                 key={textureName}
                                 src={textureImg}
                                 alt={textureName}
-                                // className={`${textureName === texture ? 'active' : ''}`}
+                                className={`${counter == MenuCubeSelected ? 'selected' : ''}`}
                             />
                         );
                     })

@@ -2,6 +2,7 @@
 
 import { nanoid } from "nanoid";
 import create from "zustand";
+import { dirtImg } from "../images/images";
 
 /********TRIED TO MAKE 3D GROUND ************/
 // let firstX = -50;
@@ -95,5 +96,25 @@ export const useStore = create(set => ({
       cubeSelectionVisible: !(state.cubeSelectionVisible)
       
     }))
-  }
+  },
+
+  MenuCubeSelected: 1,
+  setMenuCubeSelected: (id) => {
+    set(() => ({
+      MenuCubeSelected: id
+    }))
+  },
+
+  key1: 'dirt',
+  key2: 'gold',
+  setKey2: (texture) => {
+    set(() => ({ 
+      key2: texture 
+    }))
+  },
+  key3: 'glass',
+  key4: 'wood',
+  key5: 'log',
+  key6: 'gold',
+
 }))
