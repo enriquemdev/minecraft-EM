@@ -162,7 +162,10 @@ li {
   left: 50%;
   transform: translateX(-50%);
   /* display: flex; */
-  gap: 8px;
+  min-width: 732px;
+  gap: 10px;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
 
 /* .cube-selection.hidden {
@@ -171,9 +174,11 @@ li {
 
 .cube-selection img {
   width: 50px;
+  height: 50px;
   z-index: 100;
   image-rendering: pixelated;
   border: 3px solid #000;
+  /* flex: 1 0 8%; */
 }
 
 .cube-selection img.selected {

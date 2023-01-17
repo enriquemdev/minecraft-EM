@@ -7,59 +7,114 @@ export const Menu = () => {
     const [saveWorld, resetWorld, setFlyingMode, setHelpVisible, setCubeSelectionVisible] = useStore((state) => [state.saveWorld, state.resetWorld, state.setFlyingMode, state.setHelpVisible, state.setCubeSelectionVisible]);
     
     const [cubeSelectionVisible, MenuCubeSelected, setMenuCubeSelected] = useStore((state) => [state.cubeSelectionVisible, state.MenuCubeSelected, state.setMenuCubeSelected]);
-    const [setKey2] = useStore((state) => [state.setKey2]);
+    const [setKey1, setKey2, setKey3, setKey4, setKey5, setKey6 ] = useStore((state) => [state.setKey1, state.setKey2, state.setKey3, state.setKey4, state.setKey5, state.setKey6]);
 
-    
-    // const [cubeSelectionIsVisible, setCubeSelectionIsVisible] = useState(cubeSelectionVisible);
-    
-    // useEffect(() => {
-    //     console.log("estado asignar: "+ cubeSelectionVisible);
-    //     setCubeSelectionIsVisible(cubeSelectionVisible);
-    //     console.log("estado asignado: "+ cubeSelectionIsVisible);
-    // }, [cubeSelectionVisible])
 
     //MENU DE TECLAS
     useLayoutEffect(() => {
-        console.log('actu');
+
         //Esta funcion se ejecuta cuando se suelta una tecla (cuando deja de presionarse)
         const handleKeyUp = (event) => {
             const { code } = event; // code es el codigo de la tecla que se presiono
+            
+            switch (code) {
+                case 'KeyQ':
+                    setFlyingMode();
+                    break;
 
-            if (code === 'KeyQ')
-            {
-                //console.log('Q was pressed');
-                setFlyingMode();    
+                case 'KeyH':
+                    setHelpVisible();
+                    break;
+
+                case 'KeyZ':
+                    setCubeSelectionVisible();
+                    break;
+
+                // cases to navigate the cube selection menu with the arrows
+                case 'ArrowRight':
+                    if (cubeSelectionVisible)
+                    {
+                        setMenuCubeSelected(MenuCubeSelected + 1);
+                    }
+                    break;
+
+                case 'ArrowLeft':
+                    if (cubeSelectionVisible)
+                    {
+                        setMenuCubeSelected(MenuCubeSelected - 1);
+                    }
+                    break;
+
+                case 'ArrowUp':
+                    if (cubeSelectionVisible)
+                    {
+                        setMenuCubeSelected(MenuCubeSelected - 3); 
+                    }
+                    break;
+
+                case 'ArrowDown':
+                    if (cubeSelectionVisible)
+                    {
+                        setMenuCubeSelected(MenuCubeSelected + 3);
+                    }
+                    break;
+
+                //cases for the setting the textures to the numeric digits
+                case 'Digit1':
+                    if (cubeSelectionVisible)
+                    {
+                        const cubeMenuSelectedElement = document.querySelector('.cube-selection img.selected');
+                        const texture = cubeMenuSelectedElement.getAttribute('alt');
+                        setKey1(texture);
+                    }
+                    break;
+
+                case 'Digit2':
+                    if (cubeSelectionVisible)
+                    {
+                        const cubeMenuSelectedElement = document.querySelector('.cube-selection img.selected');
+                        const texture = cubeMenuSelectedElement.getAttribute('alt');
+                        setKey2(texture);
+                    }
+                    break;
+
+                case 'Digit3':
+                    if (cubeSelectionVisible)
+                    {
+                        const cubeMenuSelectedElement = document.querySelector('.cube-selection img.selected');
+                        const texture = cubeMenuSelectedElement.getAttribute('alt');
+                        setKey3(texture);
+                    }
+                    break;
+
+                case 'Digit4':
+                    if (cubeSelectionVisible)
+                    {
+                        const cubeMenuSelectedElement = document.querySelector('.cube-selection img.selected');
+                        const texture = cubeMenuSelectedElement.getAttribute('alt');
+                        setKey4(texture);
+                    }   
+                    break;
+
+                case 'Digit5':
+                    if (cubeSelectionVisible)
+                    {
+                        const cubeMenuSelectedElement = document.querySelector('.cube-selection img.selected');
+                        const texture = cubeMenuSelectedElement.getAttribute('alt');
+                        setKey5(texture);
+                    }
+                    break;
+
+                case 'Digit6':
+                    if (cubeSelectionVisible)
+                    {
+                        const cubeMenuSelectedElement = document.querySelector('.cube-selection img.selected');
+                        const texture = cubeMenuSelectedElement.getAttribute('alt');
+                        setKey6(texture);
+                    }
+                    break;
             }
-            else if (code === 'KeyH')
-            {
-                setHelpVisible();
-            }
-            else if (code === 'KeyZ')
-            {
-                setCubeSelectionVisible();
-            }
-            else if (code === 'ArrowRight')
-            {   
-                // console.log("estado al presionar la tecla zustand "  +cubeSelectionVisible);
-                // console.log("estado al presionar la tecla local "+cubeSelectionIsVisible);//variable del useState
-                if (cubeSelectionVisible)
-                {
-                    setMenuCubeSelected(MenuCubeSelected + 1);
-                    console.log('ArrowRight was pressed');
-                }
-                
-            }
-            else if (code === 'Digit2')
-            {   
-                if (cubeSelectionVisible)
-                {
-                    const cubeMenuSelectedElement = document.querySelector('.cube-selection img.selected');
-                    const texture = cubeMenuSelectedElement.getAttribute('alt');
-                    setKey2(texture);
-                    //console.log('ArrowRight was pressed');
-                }
-                
-            }
+
         }
 
         document.addEventListener('keyup', handleKeyUp);
@@ -70,8 +125,6 @@ export const Menu = () => {
     }, [cubeSelectionVisible, MenuCubeSelected]);
 
     
-
-
 
     return (
         <>

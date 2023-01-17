@@ -2,15 +2,41 @@
 import { useStore } from '../hooks/useStore.js';
 import { useKeyboard } from '../hooks/useKeyboard.js';
 import { useEffect, useState, useLayoutEffect } from 'react';
-import { dirtImg, grassImg, glassImg, woodImg, logImg, goldImg } from '../images/images.js';
+import { dirtImg, grassImg, glassImg, birch_woodImg, logImg, goldImg } from '../images/images.js';
+import { acacia_woodImg, jungle_woodImg, dark_oak_woodImg, oak_woodImg, spruce_woodImg, warped_woodImg } from '../images/images.js';
+import { celeste_glassImg, cobblestoneImg, creeper_sandstoneImg, diamondImg, emeraldImg, lapislazuliImg } from '../images/images.js';
+import { mossy_cobblestoneImg, pumpkinImg, redstoneImg, sandstoneImg, stoneImg, spruce_logImg, } from '../images/images.js';
+
 
 const images = {
     dirt: dirtImg,
     grass: grassImg,
     glass: glassImg,
-    wood: woodImg,
+    birch_wood: birch_woodImg,
     log: logImg,
-    gold: goldImg
+    gold: goldImg,
+
+    acacia_wood: acacia_woodImg,
+    jungle_wood: jungle_woodImg,
+    dark_oak_wood: dark_oak_woodImg,
+    oak_wood: oak_woodImg,
+    spruce_wood: spruce_woodImg,
+    warped_wood: warped_woodImg,
+
+    celeste_glass: celeste_glassImg,
+    cobblestone: cobblestoneImg,
+    creeper_sandstone: creeper_sandstoneImg,
+    diamond: diamondImg,
+    emerald: emeraldImg,
+    lapislazuli: lapislazuliImg,
+
+    mossy_cobblestone: mossy_cobblestoneImg,
+    pumpkin: pumpkinImg,
+    redstone: redstoneImg,
+    sandstone: sandstoneImg,
+    stone: stoneImg,
+    spruce_log: spruce_logImg,
+
 }
 
 export const CubeSelection = () => {
@@ -20,35 +46,6 @@ export const CubeSelection = () => {
     useLayoutEffect(() => {
         setVisible(cubeSelectionVisible);
     }, [cubeSelectionVisible]);
-
-    const {
-        dirt,
-        grass,
-        glass,
-        wood,
-        log,
-        gold
-    } = useKeyboard();
-
-    // useEffect(() => {
-    //     const options = {
-    //     dirt,
-    //     grass,
-    //     glass,
-    //     wood,
-    //     log,
-    //     gold
-    //     }
-    
-    //     const selectedTexture = Object  
-    //     .entries(options)
-    //     .find(([texture, isEnabled]) => isEnabled)
-    
-    //     if (selectedTexture) {
-    //         const [textureName] = selectedTexture
-    //         //setTexture(textureName)
-    //     }
-    // }, [dirt, grass, glass, wood, log, gold]);
 
         let counter = 0;
         return (

@@ -106,15 +106,40 @@ export const useStore = create(set => ({
   },
 
   key1: 'dirt',
-  key2: 'gold',
+  setKey1: (texture) => {
+    set(() => ({ 
+      key1: texture 
+    }))
+  },
+  key2: 'grass',
   setKey2: (texture) => {
     set(() => ({ 
       key2: texture 
     }))
   },
   key3: 'glass',
-  key4: 'wood',
+  setKey3: (texture) => {
+    set(() => ({ 
+      key3: texture 
+    }))
+  },
+  key4: 'birch_wood',
+  setKey4: (texture) => {
+    set(() => ({ 
+      key4: texture 
+    }))
+  },
   key5: 'log',
+  setKey5: (texture) => {
+    set(() => ({ 
+      key5: texture 
+    }))
+  },
   key6: 'gold',
+  setKey6: (texture) => {
+    set(() => ({ 
+      key6: texture 
+    }))
+  },
 
 }))
