@@ -109,6 +109,10 @@ li {
   opacity: 0.95;
 }
 
+.help ul{
+  margin-top: 0px;
+}
+
 .helpMiniTitle {
   font-weight: bolder;
   color: black;
@@ -116,12 +120,15 @@ li {
 }
 
 .helpTitle {
-  margin-bottom: 0.5rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
   font-size: 1.2rem;
 }
 
 .helpMainTitle {
   font-size: 1.65rem;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .keysText {
@@ -183,4 +190,19 @@ li {
 
 .cube-selection img.selected {
   border-color: red;
+}
+
+.numberOnCubeMenuContainer {
+  color: #f20505;
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: bold;
+  height: 0px;
+  /* min-height: 18.90px; */
+}
+
+.numberOnCubeMenu {
+  position: relative;
+  top: 4px;
+  text-shadow: 2px 1px #262626;
 }

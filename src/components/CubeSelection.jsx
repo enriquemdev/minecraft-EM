@@ -41,6 +41,9 @@ const images = {
 
 export const CubeSelection = () => {
     const [cubeSelectionVisible, MenuCubeSelected] = useStore((state) => [state.cubeSelectionVisible, state.MenuCubeSelected]);
+    const [key1, key2, key3, key4, key5, key6] = useStore(state => [state.key1, state.key2, state.key3, state.key4, state.key5, state.key6])
+    const keys = [key1, key2, key3, key4, key5, key6];
+
     const [visible, setVisible] = useState(false)
 
     useLayoutEffect(() => {
@@ -55,12 +58,30 @@ export const CubeSelection = () => {
                         counter++;
 
                         return (
-                            <img
-                                key={textureName}
-                                src={textureImg}
-                                alt={textureName}
-                                className={`${counter == MenuCubeSelected ? 'selected' : ''}`}
-                            />
+                            <div key={counter}>
+                                
+                                    <div className='numberOnCubeMenuContainer'>
+                                        {
+                                            keys.map((key, index) => {
+                                                if (key === textureName) {
+                                                    return (
+                                                        <span className='numberOnCubeMenu' key={index}>
+                                                            {index+1}
+                                                        </span>
+                                                    )
+                                                }
+                                            })
+                                        }
+                                    </div>
+                                
+
+                                    <img
+                                        key={textureName}
+                                        src={textureImg}
+                                        alt={textureName}
+                                        className={`${counter == MenuCubeSelected ? 'selected' : ''}`}
+                                    />
+                            </div>
                         );
                     })
                 }

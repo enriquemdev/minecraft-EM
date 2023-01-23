@@ -34,28 +34,57 @@ export const Menu = () => {
                 case 'ArrowRight':
                     if (cubeSelectionVisible)
                     {
-                        setMenuCubeSelected(MenuCubeSelected + 1);
+                        if (MenuCubeSelected % 12 !== 0) // if the selected cube is not the last one in the row
+                        {
+                            setMenuCubeSelected(MenuCubeSelected + 1);
+                        }
+                        else
+                        {
+                            setMenuCubeSelected(MenuCubeSelected - 11);
+                        }
                     }
                     break;
 
                 case 'ArrowLeft':
                     if (cubeSelectionVisible)
                     {
-                        setMenuCubeSelected(MenuCubeSelected - 1);
+                        if (MenuCubeSelected % 13 !== 0) // if the selected cube is not the first one in the row
+                        {
+                            setMenuCubeSelected(MenuCubeSelected - 1);
+                        }
+                        else
+                        {
+                            setMenuCubeSelected(MenuCubeSelected + 11);
+                        }
+                        
                     }
                     break;
 
                 case 'ArrowUp':
                     if (cubeSelectionVisible)
                     {
-                        setMenuCubeSelected(MenuCubeSelected - 3); 
+                        if (MenuCubeSelected > 12) // if the selected cube is not the first row
+                        {
+                            setMenuCubeSelected(MenuCubeSelected - 12); 
+                        }
+                        else
+                        {
+                            setMenuCubeSelected(MenuCubeSelected + 12);
+                        }
                     }
                     break;
 
                 case 'ArrowDown':
                     if (cubeSelectionVisible)
                     {
-                        setMenuCubeSelected(MenuCubeSelected + 3);
+                        if (MenuCubeSelected > 12) // if the selected cube is not the first row
+                        {
+                            setMenuCubeSelected(MenuCubeSelected - 12); 
+                        }
+                        else
+                        {
+                            setMenuCubeSelected(MenuCubeSelected + 12);
+                        }
                     }
                     break;
 
