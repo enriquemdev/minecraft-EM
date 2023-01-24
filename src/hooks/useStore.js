@@ -2,6 +2,7 @@
 
 import { nanoid } from "nanoid";
 import create from "zustand";
+import { dirtImg } from "../images/images";
 
 /********TRIED TO MAKE 3D GROUND ************/
 // let firstX = -50;
@@ -73,6 +74,29 @@ export const useStore = create(set => ({
   },
 
   //my own code
+  loadWorld: (text) => {
+    set(() => ({
+      cubes: [...JSON.parse(text)]
+    }))
+  },
+  downloadWorld: () => {
+    set((state) => {
+
+      const downloadLink = document.createElement("a");
+      const content = JSON.stringify(state.cubes);
+      const file = new Blob([content], { type: 'text/plain' });
+
+      downloadLink.href = URL.createObjectURL(file);
+      downloadLink.download = "minecraft-em-WORLD.txt";
+      downloadLink.click();
+      URL.revokeObjectURL(downloadLink.href);
+
+      //console.log(JSON.parse(JSON.stringify(state.cubes)));
+      return state
+    })
+    
+  },
+
   flyingMode: false,
   setFlyingMode: () => {
     set((state) => ({ 
@@ -80,11 +104,65 @@ export const useStore = create(set => ({
       
     }))
   },
+
   helpVisible: false,
   setHelpVisible: () => {
     set((state) => ({ 
       helpVisible: !(state.helpVisible)
       
     }))
-  }
+  },
+  
+  cubeSelectionVisible: false,
+  setCubeSelectionVisible: () => {
+    set((state) => ({ 
+      cubeSelectionVisible: !(state.cubeSelectionVisible)
+      
+    }))
+  },
+
+  MenuCubeSelected: 1,
+  setMenuCubeSelected: (id) => {
+    set(() => ({
+      MenuCubeSelected: id
+    }))
+  },
+
+  key1: 'dirt',
+  setKey1: (texture) => {
+    set(() => ({ 
+      key1: texture 
+    }))
+  },
+  key2: 'grass',
+  setKey2: (texture) => {
+    set(() => ({ 
+      key2: texture 
+    }))
+  },
+  key3: 'glass',
+  setKey3: (texture) => {
+    set(() => ({ 
+      key3: texture 
+    }))
+  },
+  key4: 'birch_wood',
+  setKey4: (texture) => {
+    set(() => ({ 
+      key4: texture 
+    }))
+  },
+  key5: 'log',
+  setKey5: (texture) => {
+    set(() => ({ 
+      key5: texture 
+    }))
+  },
+  key6: 'gold',
+  setKey6: (texture) => {
+    set(() => ({ 
+      key6: texture 
+    }))
+  },
+
 }))

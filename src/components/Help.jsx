@@ -2,7 +2,7 @@ import {useState, useLayoutEffect} from 'react'
 import { useStore } from '../hooks/useStore.js';
 
 export const Help = () => {
-    const [helpVisible] = useStore((state) => [state.helpVisible, state.setHelpVisible]);
+    const [helpVisible] = useStore((state) => [state.helpVisible]);
 
     const [visible, setVisible] = useState(helpVisible);
 
@@ -22,6 +22,9 @@ export const Help = () => {
                     <li><span className='mouseText'>Click</span> to put a block</li>
                     <li>Press <span className='keysText'>Alt</span> Key + <span className='mouseText'>Click</span> to destroy a cube</li>
                     <li>Press <span className='keysText'>Q</span> Key to activate <span className='flyText'>Flying Mode</span></li>
+                    <li>Use <span className='keysText'>123456</span> Keys to choose current cube</li>
+                    <li>Press <span className='keysText'>Z</span> Key to open the cube selection menu</li>
+                    <li>Use <span className='keysText'>ARROW</span> Keys to navigate cube selection menu</li>
 
                     <h4 className='helpTitle'>WHEN FLYING MODE ACTIVATED</h4>
                     <li>Press <span className='keysText'>R</span> Key to go up</li>
@@ -32,6 +35,8 @@ export const Help = () => {
                     <li><span className='helpMiniTitle'>Save</span> = Save your current world to your browser</li>
                     <li><span className='helpMiniTitle'>Reset</span> = Erase all blocks {'('}But don´t save{')'}</li>
                     <li><span className='helpMiniTitle'>Fly</span> = Activate <span className='flyText'>Flying Mode</span> {'('}Just as <span className='keysText'>Q</span> Key{')'}</li>
+                    <li><span className='helpMiniTitle'>Download World</span> = Download your current world to your local disk</li>
+                    <li><span className='helpMiniTitle'>Load World</span> = Select a downloaded world and render it! {'('}But don´t save{')'}</li>
                 </ul>
                 
 

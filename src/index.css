@@ -80,6 +80,10 @@ body {
   display: block;
 }
 
+.visibleFlex {
+  display: flex;
+}
+
 .hidden {
   display: none;
 }
@@ -105,6 +109,10 @@ li {
   opacity: 0.95;
 }
 
+.help ul{
+  margin-top: 0px;
+}
+
 .helpMiniTitle {
   font-weight: bolder;
   color: black;
@@ -112,12 +120,15 @@ li {
 }
 
 .helpTitle {
-  margin-bottom: 0.5rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
   font-size: 1.2rem;
 }
 
 .helpMainTitle {
   font-size: 1.65rem;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .keysText {
@@ -147,3 +158,62 @@ li {
   right: 10px;
 }
 
+/* cubeSelection */
+
+.cube-selection {
+  bottom: 32px;
+  background: #aaa;
+  padding: 8px;
+  border: 3px solid #000;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* display: flex; */
+  min-width: 732px;
+  gap: 10px;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+/* .cube-selection.hidden {
+  display: none;
+} */
+
+.cube-selection img {
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+  image-rendering: pixelated;
+  border: 3px solid #000;
+  /* flex: 1 0 8%; */
+}
+
+.cube-selection img.selected {
+  border-color: red;
+}
+
+.numberOnCubeMenuContainer {
+  color: #f20505;
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: bold;
+  height: 0px;
+  /* min-height: 18.90px; */
+}
+
+.numberOnCubeMenu {
+  position: relative;
+  top: 4px;
+  text-shadow: 2px 1px #262626;
+}
+
+.buttonDiv button, .buttonDiv input, .buttonDiv label {
+  /* position: absolute; */
+  float: left;
+  clear: left;
+}
+
+.buttonDiv label {
+  margin-top: 5px;
+  font-size: small;
+}

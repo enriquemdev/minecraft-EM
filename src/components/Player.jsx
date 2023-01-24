@@ -7,7 +7,7 @@ import { useKeyboard } from "../hooks/useKeyboard";
 import { useStore } from "../hooks/useStore";
 
 const CHARACTER_SPEED = 4;
-const CHARACTER_JUMP_FORCE = 4;
+const CHARACTER_JUMP_FORCE = 5;
 const CHARACTER_FLYING_SPEED = 0.065;
 
 export const Player = () => {

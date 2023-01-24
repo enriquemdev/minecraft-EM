@@ -1,26 +1,52 @@
 //Este es un hook custom que se encarga de manejar las acciones del teclado
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
+import { useStore } from './useStore';
 
-const ACTIONS_KEYBOARD_MAP = {
-    'KeyW': 'moveForward',
-    'KeyS': 'moveBackward',
-    'KeyA': 'moveLeft',
-    'KeyD': 'moveRight',
-    'Space': 'jump',
-    'Digit1': 'dirt',
-    'Digit2': 'grass',
-    'Digit3': 'glass',
-    'Digit4': 'wood',
-    'Digit5': 'log',
-    'Digit6': 'gold',
 
-    //'KeyQ': 'toggleFlyingMode',
-    'KeyR': 'ascend',
-    'KeyF': 'descend',
-}
 
 export const useKeyboard = () => {
+    const [key1, key2, key3, key4, key5, key6] = useStore(state => [state.key1, state.key2, state.key3, state.key4, state.key5, state.key6])
+
+    let ACTIONS_KEYBOARD_MAP = {
+        'KeyW': 'moveForward',
+        'KeyS': 'moveBackward',
+        'KeyA': 'moveLeft',
+        'KeyD': 'moveRight',
+        'Space': 'jump',
+        'Digit1': key1,
+        'Digit2': key2,
+        'Digit3': key3,
+        'Digit4': key4,
+        'Digit5': key5,
+        'Digit6': key6,
+    
+        //'KeyQ': 'toggleFlyingMode',
+        'KeyR': 'ascend',
+        'KeyF': 'descend',
+    }
+
+    useLayoutEffect(() => {
+        //console.log(ACTIONS_KEYBOARD_MAP2)
+        ACTIONS_KEYBOARD_MAP = {
+            'KeyW': 'moveForward',
+            'KeyS': 'moveBackward',
+            'KeyA': 'moveLeft',
+            'KeyD': 'moveRight',
+            'Space': 'jump',
+            'Digit1': key1,
+            'Digit2': key2,
+            'Digit3': key3,
+            'Digit4': key4,
+            'Digit5': key5,
+            'Digit6': key6,
+        
+            //'KeyQ': 'toggleFlyingMode',
+            'KeyR': 'ascend',
+            'KeyF': 'descend',
+        }
+
+    }, [key1, key2, key3, key4, key5, key6])
 
 
     const [actions, setActions] = useState({
@@ -33,8 +59,30 @@ export const useKeyboard = () => {
         grass: false,
         glass: false,
         log: false,
-        wood: false,
+        birch_wood: false,
         gold: false,
+
+        acacia_wood: false,
+        jungle_wood: false,
+        dark_oak_wood: false,
+        oak_wood: false,
+        spruce_wood: false,
+        warped_wood: false,
+
+        celeste_glassImg: false,
+        cobblestoneImg: false,
+        creeper_sandstoneImg: false,
+        diamondImg: false,
+        emeraldImg: false,
+        lapislazuliImg: false,
+
+        mossy_cobblestoneImg: false,
+        pumpkinImg: false,
+        redstoneImg: false,
+        sandstoneImg: false,
+        stoneImg: false,
+        spruce_logImg: false,
+
         //toggleFlyingMode: false,
         ascend: false,
         descend: false,
@@ -82,7 +130,7 @@ export const useKeyboard = () => {
             document.removeEventListener('keydown', handleKeyDown);
             document.removeEventListener('keyup', handleKeyUp);
         }
-    }, []);
+    }, [key1, key2, key3, key4, key5, key6]);
 
     return actions;
 }
