@@ -206,3 +206,14 @@ li {
   top: 4px;
   text-shadow: 2px 1px #262626;
 }
+
+.buttonDiv button, .buttonDiv input, .buttonDiv label {
+  /* position: absolute; */
+  float: left;
+  clear: left;
+}
+
+.buttonDiv label {
+  margin-top: 5px;
+  font-size: small;
+}

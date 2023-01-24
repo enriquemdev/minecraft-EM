@@ -35,6 +35,8 @@ export const Help = () => {
                     <li><span className='helpMiniTitle'>Save</span> = Save your current world to your browser</li>
                     <li><span className='helpMiniTitle'>Reset</span> = Erase all blocks {'('}But don´t save{')'}</li>
                     <li><span className='helpMiniTitle'>Fly</span> = Activate <span className='flyText'>Flying Mode</span> {'('}Just as <span className='keysText'>Q</span> Key{')'}</li>
+                    <li><span className='helpMiniTitle'>Download World</span> = Download your current world to your local disk</li>
+                    <li><span className='helpMiniTitle'>Load World</span> = Select a downloaded world and render it! {'('}But don´t save{')'}</li>
                 </ul>
                 
 

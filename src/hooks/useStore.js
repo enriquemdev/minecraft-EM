@@ -74,6 +74,29 @@ export const useStore = create(set => ({
   },
 
   //my own code
+  loadWorld: (text) => {
+    set(() => ({
+      cubes: [...JSON.parse(text)]
+    }))
+  },
+  downloadWorld: () => {
+    set((state) => {
+
+      const downloadLink = document.createElement("a");
+      const content = JSON.stringify(state.cubes);
+      const file = new Blob([content], { type: 'text/plain' });
+
+      downloadLink.href = URL.createObjectURL(file);
+      downloadLink.download = "minecraft-em-WORLD.txt";
+      downloadLink.click();
+      URL.revokeObjectURL(downloadLink.href);
+
+      //console.log(JSON.parse(JSON.stringify(state.cubes)));
+      return state
+    })
+    
+  },
+
   flyingMode: false,
   setFlyingMode: () => {
     set((state) => ({ 

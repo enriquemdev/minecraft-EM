@@ -9,6 +9,7 @@ export const Menu = () => {
     const [cubeSelectionVisible, MenuCubeSelected, setMenuCubeSelected] = useStore((state) => [state.cubeSelectionVisible, state.MenuCubeSelected, state.setMenuCubeSelected]);
     const [setKey1, setKey2, setKey3, setKey4, setKey5, setKey6 ] = useStore((state) => [state.setKey1, state.setKey2, state.setKey3, state.setKey4, state.setKey5, state.setKey6]);
 
+    const [downloadWorld, loadWorld] = useStore((state) => [state.downloadWorld, state.loadWorld]);
 
     //MENU DE TECLAS
     useLayoutEffect(() => {
@@ -153,7 +154,22 @@ export const Menu = () => {
         }
     }, [cubeSelectionVisible, MenuCubeSelected]);
 
-    
+
+    //funion que permite leer el archivo de texto subido y llama a la funcion loadWorld
+    const showFile = async (e) => { //e es el evento que se dispara cuando se sube el archivo
+
+        e.preventDefault() //evita que se recargue la pagina
+  
+        const reader = new FileReader() //crea un objeto que permite leer el archivo subido
+  
+        reader.onload = async (e) => { //cuando el archivo se haya leido, se ejecuta esta funcion
+  
+           const text = (e.target.result) //e.target.result es el contenido del archivo
+           loadWorld(text); //llama a la funcion loadWorld y le pasa el contenido del archivo
+  
+        }; 
+        reader.readAsText(e.target.files[0])  //lee el archivo subido
+     } 
 
     return (
         <>
@@ -169,6 +185,23 @@ export const Menu = () => {
                 <button
                     onClick={() => setFlyingMode()}
                 >Fly</button>
+
+                <div className="buttonDiv">
+
+                    <div>
+                        <button
+                            onClick={() => downloadWorld()}
+                        >Download World</button>
+                    </div>
+
+                    <div>
+                        <label htmlFor="fileInput" className="btn">Load World</label>
+                        
+                        <input id="fileInput" type="file" onChange={(e) => showFile(e)} />
+                    </div>
+                    
+                </div>
+                
             </div>
             <Help></Help>
             <CubeSelection></CubeSelection>
